@@ -1,0 +1,34 @@
+Binary Search(it always either increasing or decreasing order then only apply)
+
+1)first find the middle element by= 
+     (starting index+End index)/2
+     
+ 
+ 2)then compare the middle element with key(required element);
+ 
+ 3)if it equal with mid element return the index of mid element else
+ 
+ 4)find the correct part where element is present and repeat the steps. 
+   how to find whether key is present in left or right part for that 
+    compare the key with mid  if key is greater than mid then element is present 
+    in right side else it is present i left side.
+    and we have to change the start and end by increase and decrease through mid element
+    
+ TIP:
+ -if you find mid by this way is ok but suppose when we do addition of two int it may 
+   be chance of overflow so better we can do 
+      mid=start+(end-start)/2;
+      
+      
+      Why to use Binary search 
+      -first of all it reduce time complexity from o(n) to o(log n).
+          HOW?
+      -first we find middle so n/2(n/2^k)
+      -then again we find left or right so again divide so n/4
+      -again divide n/8;
+      
+      -so Time complexity of BS is O(log N)
+      N/2^k=1
+      N=2^K
+      k=logN;
+    
