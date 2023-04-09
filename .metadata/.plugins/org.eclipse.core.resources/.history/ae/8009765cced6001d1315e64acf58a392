@@ -36,16 +36,6 @@ public class Pattern {
 		System.out.println();
 		pattern16(n);
 		System.out.println();
-		pattern17(n);
-		System.out.println();
-		pattern18(n);
-		System.out.println();
-		pattern19(n);
-		System.out.println();
-		pattern20(n);
-		System.out.println();
-		pattern21(n);
-		System.out.println();
 
 	}
 
@@ -253,7 +243,6 @@ public class Pattern {
 	
 	public static void pattern14(int n)
 	{
-		//floyd Triangle
 		int count=1;
 		for(int i=1;i<=n;i++)
 		{
@@ -269,79 +258,9 @@ public class Pattern {
 	public static void pattern15(int n)
 	{
 		
-		for(int i=0;i<n;i++)
-		{
-			for(char j='A';j<'A'+i;j++)
-			{
-				System.out.print(j);	
-			}
-			System.out.println();
-		}
 	}
 	
 	public static void pattern16(int n)
-	{
-		for(int i=1;i<=n;i++)
-		{
-			for(char j='A';j<='A'+(n-i);j++)
-			{
-				System.out.print(j);
-			}
-			System.out.println();
-		}
-	}
-	public static void pattern17(int n)
-	{
-		for(int i=0;i<n;i++)
-		{
-			for(int j=0;j<=i;j++)
-			{
-				System.out.print((char)(int)('A'+i));
-			}
-			System.out.println();
-		}
-		
-	}
-	
-	public static void pattern18(int n)
-	{
-		for(int i=0;i<n;i++)
-		{
-			for(int j=0;j<n-i-1;j++)
-			{
-				System.out.print(" ");
-			}
-			char ch='A';
-			int breakpoint=(2*i+1)/2;
-			
-			for(int j=1;j<=2*i+1;j++)
-			{
-				System.out.print(ch);
-				if(j<=breakpoint)
-					ch++;
-				else
-					ch--;
-			}
-			
-			for(int j=0;j<n-i-1;j++)
-			{
-				System.out.print(" ");
-			}
-			System.out.println();
-		}
-	}
-	
-	public static void pattern19(int n)
-	{
-		
-	}
-	
-	public static void pattern20(int n)
-	{
-		
-	}
-	
-	public static void pattern21(int n)
 	{
 		
 	}
