@@ -1,0 +1,31 @@
+package com.basic.sorting;
+
+public class SelectionSort {
+	public static void main(String[] args) {
+
+		int[] arr = new int[] { 13, 46, 24, 52, 20, 9 };
+
+		for (int i = 0; i < arr.length; i++) {
+			int min=arr[i];
+			for (int j = i + 1; j < arr.length; j++) {
+
+				if(min>arr[j])
+				{
+					min=j;
+				}	
+			}
+			int temp=arr[min];
+			arr[min]=i;
+			arr[i]=temp;
+		
+			System.out.println(min);
+		}
+
+	}
+	public static swap(int min,int first)
+	{
+		int temp=arr[min];
+		return 
+	
+
+}

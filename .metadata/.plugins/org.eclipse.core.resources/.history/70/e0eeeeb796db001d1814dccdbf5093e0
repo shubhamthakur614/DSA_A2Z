@@ -1,0 +1,12 @@
+package com.basic.sorting;
+
+public class SelectionSort 
+{
+	int [] arr=new int[] {13,46,24,52,20,9};
+	public static void main(String[] args) {
+		
+	
+	}
+	
+
+}
