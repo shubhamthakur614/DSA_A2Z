@@ -6,7 +6,6 @@ import java.util.Arrays;
  * 1) take first element as min and find the min element in the array 
  * 2) once min element find replace with first element 
  * 3) next time replace with sec element this way it goes
- * 4)selection sort take the minimum element at start
  * 
  */
 
@@ -16,10 +15,10 @@ public class SelectionSort {
 		
 		for(int i=0;i<arr.length-1;i++)
 		{
-			int min =i;
+			int min =arr[i];
 			for(int j=i;j<arr.length;j++)
 			{
-				if(arr[min]>arr[j])
+				if(min>arr[j])
 				{
 					min=j;
 				}
