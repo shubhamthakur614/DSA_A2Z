@@ -1,0 +1,19 @@
+package com.basic.sorting;
+
+/*
+ * Bubble Sort
+ * 1)In bubble sort the larger element is place at end of list first
+ * 
+ */
+public class BubbleSort {
+
+	public static void main(String[] args) {
+		int[] arr = new int[] { 13, 46, 24, 52, 20, 9 };
+		bubbleSort(arr);
+	}
+
+	public static void bubbleSort(int[] arr) {
+
+		
+	}
+}
