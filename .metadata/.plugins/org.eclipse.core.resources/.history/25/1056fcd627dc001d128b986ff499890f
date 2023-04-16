@@ -68,7 +68,7 @@ public class Test
 //				arr[j]=temp;
 //				j--;
 //			}
-			for(int j=i;j>0 && arr[j-1]>arr[j];j--)
+			for(int j=i && arr[j-1]>arr[j];j>0;j--)
 			{
 				int temp=arr[j-1];
 				arr[j-1]=arr[j];

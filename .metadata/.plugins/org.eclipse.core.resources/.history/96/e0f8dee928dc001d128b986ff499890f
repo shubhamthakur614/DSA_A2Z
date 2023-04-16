@@ -1,0 +1,9 @@
+package com.basic.sorting;
+/*
+ * Insertion sort
+ * 1)select and insert into appropriate place until swap
+ * 
+ */
+public class InsertionSort {
+
+}

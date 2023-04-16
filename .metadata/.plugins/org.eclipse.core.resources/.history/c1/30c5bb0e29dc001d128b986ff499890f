@@ -1,0 +1,19 @@
+package com.basic.sorting;
+
+/*
+ * Insertion sort
+ * 1)select and insert into appropriate place until swap
+ * 2)compare left with right if greater swap
+ * 
+ */
+public class InsertionSort {
+	public static void main(String[] args) {
+		int[] arr = new int[] { 13, 46, 24, 52, 20, 9 };
+		insertionSort(arr);
+	}
+
+	public static void insertionSort(int[] arr) {
+
+	}
+
+}
