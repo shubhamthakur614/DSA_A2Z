@@ -81,9 +81,8 @@ public class Test {
 			}
 			if(didSwap==0)
 			{
-				break;
+				break
 			}
-			System.out.println("run");
 		}
 
 		System.out.println(Arrays.toString(arr));

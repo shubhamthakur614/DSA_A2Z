@@ -83,7 +83,6 @@ public class Test {
 			{
 				break;
 			}
-			System.out.println("run");
 		}
 
 		System.out.println(Arrays.toString(arr));
