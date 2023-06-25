@@ -12,10 +12,9 @@ public class Q1 {
 		System.out.println(Arrays.toString(arr));
 		int[] reverseArray = reverseArray(arr, arr.length);
 		System.out.println(Arrays.toString(reverseArray));
-		int[] arr1 = { 1, 4, 7, 8, 10 };
+		int[] arr1= {1,4,7,8,10};
 		System.out.println(Arrays.toString(arr1));
-		reverseArrayUsingRecursion(arr1, 0, arr1.length - 1);
-		System.out.println(Arrays.toString(arr1));
+		reverseArrayUsingRecursion(arr1,0,arr.length-1);
 
 	}
 
@@ -37,15 +36,10 @@ public class Q1 {
 		}
 
 	}
-
-	public static void reverseArrayUsingRecursion(int[] arr, int start, int end) {
-		if (start >= end)
-			return;
-		int temp = arr[start];
-		arr[start] = arr[end];
-		arr[end] = temp;
-		reverseArrayUsingRecursion(arr, start + 1, end - 1);
-
+	
+	public static void reverseArrayUsingRecursion(int[] arr,int start,int end)
+	{
+		
 	}
 
 }
