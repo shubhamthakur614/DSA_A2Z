@@ -1,0 +1,11 @@
+package com.searching.binarysearch;
+
+/*
+ * Frequency of Count using BS
+ * i/p {1,1,1,2,2,3,3}
+ * x=3
+ * o/p 2 times
+ */
+public class Q9 {
+
+}
