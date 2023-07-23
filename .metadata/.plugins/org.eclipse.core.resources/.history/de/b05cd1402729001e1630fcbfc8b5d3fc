@@ -1,0 +1,51 @@
+package com.searching.binarysearch;
+
+import java.util.ArrayList;
+
+public class Q8 {
+	public static void main(String[] args) {
+		ArrayList<Integer> al = new ArrayList<>();
+		al.add(0);
+		al.add(1);
+		al.add(1);
+		al.add(5);
+		int target = 1;
+
+		firstAndLastPosition(al, al.size(), target);
+	}
+
+	public static int[] firstAndLastPosition(ArrayList<Integer> arr, int n, int k) {
+		// Write your code here.
+		return new int[] { firstPosition(arr, k), lastPosition(arr, k) };
+	}
+
+	public static int firstPosition(ArrayList<Integer> arr, int target) {
+
+		int low=0;
+		int high=arr.size()-1;
+		int ans=-1;
+		while(low<=high)
+		{
+			int mid=low+(high-low)/2;
+			if(arr.get(mid)==target)
+			{
+				ans=mid;
+				high=mid-1;
+				continue;
+			}
+			else if(arr.get(mid)<target)
+			{
+				low=mid+1;
+			}
+			else
+			{
+				high=mid-1;
+			}
+		}
+	}
+
+	public static int lastPosition(ArrayList<Integer> arr, int target) {
+
+	}
+
+}

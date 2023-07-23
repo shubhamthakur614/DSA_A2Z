@@ -1,90 +1,63 @@
 package com.test;
 
-import java.util.Arrays;
-
 public class Test {
 	public static void main(String[] args) {
-
-		int[] arr = new int[] { 13, 46, 24, 52, 20, 9 };
-//		selectionSort(arr);
-//		bubbleSort(arr);
-//		insertionSort(arr);
-		m1(arr);
+		int[] arr = { 1, 3, 5, 7, 7, 7, 10 };// 3-5=2+1=3
+		int target = 7;
+		// frequency of target using ub and lb
+		int frequency = frequency(arr,target);
+		System.out.println(frequency);
 
 	}
-
-	public static void selectionSort(int[] arr) {
-		for (int i = 0; i < arr.length - 1; i++) {
-			int min = i;
-			for (int j = i; j < arr.length; j++) {
-				if (arr[j] < arr[min]) {
-					min = j;
-				}
-			}
-			int temp = arr[min];
-			arr[min] = arr[i];
-			arr[i] = temp;
-
+	public static int frequency(int[] arr,int target)
+	{
+		int lb = lb(arr, target);
+		int ub = ub(arr, target);
+		if(arr[lb]!=target)
+			return -1;
+		else {
+			return ub-lb;
 		}
-		System.out.println(Arrays.toString(arr));
 	}
 
-	public static void bubbleSort(int[] arr) {
-		int didSwap = 0;
-		for (int i = 0; i < arr.length - 1; i++) {
-			for (int j = 0; j < arr.length - 1; j++) {
-				if (arr[j] > arr[j + 1]) {
-					int temp = arr[j + 1];
-					arr[j + 1] = arr[j];
-					arr[j] = temp;
-					didSwap = 1;
-				}
+	public static int lb(int[] arr, int target) {
+		int low = 0;
+		int high = arr.length - 1;
+		int ans = -1;
+		while (low <= high) {
+			int mid = low + (high - low) / 2;
+			if (arr[mid] >= target) {
+				ans = mid;
+				high = mid - 1;
+				continue;
 			}
-			if (didSwap == 0) {
-				break;
+			if (target > +arr[mid]) {
+				low = mid + 1;
+			} else {
+				high = mid - 1;
 			}
 		}
-		System.out.println(Arrays.toString(arr));
+		return ans;
 	}
-
-	public static void insertionSort(int[] arr) {
-		for (int i = 0; i < arr.length; i++) {
-//			int j=i;
-//			while(j>0 && arr[j-1]>arr[j])
-//			{
-//				int temp=arr[j-1];
-//				arr[j-1]=arr[j];
-//				arr[j]=temp;
-//				j--;
-//			}
-			for (int j = i; j > 0 && arr[j - 1] > arr[j]; j--) {
-				int temp = arr[j - 1];
-				arr[j - 1] = arr[j];
-				arr[j] = temp;
+	
+	public static int ub(int[] arr, int target) {
+		int low = 0;
+		int high = arr.length - 1;
+		int ans = -1;
+		while (low <= high) {
+			int mid = low + (high - low) / 2;
+			if (arr[mid] >= target) {
+				ans = mid;
+				low = mid + 1;
+				continue;
+			}
+			if (target > +arr[mid]) {
+				low = mid + 1;
+			} else {
+				high = mid - 1;
 			}
 		}
-
-		System.out.println(Arrays.toString(arr));
-	}
-
-	public static void m1(int[] arr) {
-		
-		for(int i=0;i<arr.length;i++)
-		{
-//			int j=i;
-//			while(j>0 &&arr[j-1]>arr[j])
-//			{
-//				int temp=arr[j-1];
-//				arr[j-1]=arr[j];
-//				arr[j]=temp;
-//				j--;
-//			}
-			
-			
-		}
-
-		System.out.println(Arrays.toString(arr));
-
+		return ans;
 	}
 
 }

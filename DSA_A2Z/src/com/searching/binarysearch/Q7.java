@@ -1,46 +1,34 @@
 package com.searching.binarysearch;
 
-/*
- * https://leetcode.com/problems/sqrtx/
- * Input: x = 4
-   Output: 2
-   Explanation: The square root of 4 is 2, so we return 2.
- * 
+/**
+ * @author shubham.thakur Find the UpperBound in Binary Search I/p [2,4,6,7] x=5
+ *         o/p :2 index Coding ninja
+ *         https://www.codingninjas.com/studio/problems/implement-upper-bound_8165383?utm_source=youtube&utm_medium=affiliate&utm_campaign=codestudio_Striver_BinarySeries&leftPanelTab=0
  */
 public class Q7 {
 	public static void main(String[] args) {
 
-		int x = 2147395599;
-		System.out.println(squrt(x));
+		int[] arr = { 2, 4, 6, 7 };
+		int target = 5;
+		System.out.println(findUpperBound(arr, target));
+
 	}
 
-	public static int binarySearch(int x) {
-		int s=1;
-		int e=x;
-		int ans=-1;
-		while(s<=e)
-		{
-			int mid=s+(e-s)/2;
-			if(mid==x/mid)
-			{
-				return mid;
+	public static int findUpperBound(int[] arr, int target) {
+
+		int low = 0;
+		int high = arr.length - 1;
+		int ans = arr.length;
+		while (low <= high) {
+			int mid = low + (high - low) / 2;
+			if (arr[mid] > target) {
+				ans = mid;
+				high = mid - 1;
+			} else {
+				low = mid + 1;
 			}
-			else if(mid>x/mid)
-			{
-				e=mid-1;
-			}
-			else
-			{
-				ans=mid;
-				s=mid+1;
-			}
-			
 		}
 		return ans;
-	}
-
-	public static int squrt(int x) {
-		return binarySearch(x);
 	}
 
 }

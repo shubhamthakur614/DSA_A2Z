@@ -12,6 +12,7 @@ public class Q1 {
 		int[] arr = { 2, 4, 6, 7, 8, 13, 45 };
 		int key = 13;
 		System.out.println(binarySearch(arr, arr.length, key));
+		System.out.println(recursivebinarySearch(0, arr.length - 1, arr, key));
 
 	}
 
@@ -40,6 +41,19 @@ public class Q1 {
 
 		// if element is not present in the array return -1;
 		return -1;
+	}
+
+	// Recursive Way the binarySearch
+	public static int recursivebinarySearch(int low, int high, int[] arr, int target) {
+		// base condition
+		if (high < low)
+			return -1;
+		int mid = low + (high - low) / 2;
+		if (target == arr[mid])
+			return mid;
+		if (target > arr[mid])
+			return recursivebinarySearch(mid + 1, high, arr, target);
+		return recursivebinarySearch(low, mid - 1, arr, target);
 	}
 
 }
