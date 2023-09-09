@@ -15,49 +15,52 @@ public class LinkedListDemo {
 
 	}
 
-	public void addFirst(String data) {
+	public Node addFirst(String data) {
 
 		Node newNode = new Node(data);
 		if (head == null) {
 			head = newNode;
-			return;
+			return head;
 		}
 		newNode.next = head;
 		head = newNode;
+		return head;
 	}
 
-	public void addLast(String data) {
+	public Node addLast(String data) {
 
 		Node newNode = new Node(data);
 		if (head == null) {
 			head = newNode;
-			return;
+			return head;
 		}
 		Node currNode = head;
 		while (currNode.next != null) {
 			currNode = currNode.next;
 		}
 		currNode.next = newNode;
+		return head;
 	}
 
-	public void deleteFirst() {
+	public Node deleteFirst() {
 
 		if (head == null) {
 			System.out.println("Linked List is Empty...");
-			return;
+			return null;
 		}
 		head = head.next;
+		return head;
 	}
 
-	public void deleteLast() {
+	public Node deleteLast() {
 
 		if (head == null) {
 			System.out.println("Linked is Empty...");
-			return;
+			return null;
 		}
 		if (head.next == null) {
 			head = null;
-			return;
+			return null;
 		}
 		Node secLast = head;
 		Node lastNode = head.next;
@@ -67,16 +70,17 @@ public class LinkedListDemo {
 			secLast = secLast.next;
 		}
 		secLast.next = null;
+		return head;
 
 	}
 
-	public void printLL() {
+	public void printLL(Node refNode) {
 
-		if (head == null) {
+		if (refNode == null) {
 			System.out.println("Linked List is Empty...");
 			return;
 		}
-		Node currNode = head;
+		Node currNode = refNode;
 		while (currNode != null) {
 			System.out.print(currNode.data + "->");
 			currNode = currNode.next;
@@ -87,16 +91,16 @@ public class LinkedListDemo {
 
 	public static void main(String[] args) {
 		LinkedListDemo ll = new LinkedListDemo();
-		ll.addFirst("a");
-		ll.printLL();
-		ll.addLast("z");
-		ll.printLL();
-		ll.addFirst("c");
-		ll.printLL();
-		ll.deleteFirst();
-		ll.printLL();
-		ll.deleteLast();
-		ll.printLL();
+		Node addFirst = ll.addFirst("a");
+		ll.printLL(addFirst);
+		Node addLast = ll.addLast("z");
+		ll.printLL(addLast);
+		addFirst = ll.addFirst("c");
+		ll.printLL(addFirst);
+		Node deleteFirst = ll.deleteFirst();
+		ll.printLL(deleteFirst);
+		Node deleteLast = ll.deleteLast();
+		ll.printLL(deleteLast);
 
 	}
 
