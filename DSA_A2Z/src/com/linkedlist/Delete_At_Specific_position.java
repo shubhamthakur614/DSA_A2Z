@@ -32,23 +32,30 @@ public class Delete_At_Specific_position {
 	}
 
 	public static void main(String[] args) {
-		Node addNode = addNode(10);
-		addNode.next = addNode(12);
-		addNode.next.next = addNode(15);
-		addNode.next.next.next = addNode(17);
-		addNode.next.next.next.next = addNode(19);
+		Node addNode = addNode(1);
+		addNode.next = addNode(2);
+		addNode.next.next = addNode(3);
+		addNode.next.next.next = addNode(4);
+		addNode.next.next.next.next = addNode(5);
+		addNode.next.next.next.next.next = addNode(6);
 		printLL(addNode);
-		Node deleteAtPosition = deleteAtPosition(addNode, 4);
+		Node deleteAtPosition = deleteAtPosition(addNode, 3);
 		printLL(deleteAtPosition);
+		printLL(addNode);
 	}
 
 	public static Node deleteAtPosition(Node refNode, int position) {
+		if(refNode==null)
+		{
+			return null;
+		}
+		Node currNode=refNode;
 		if (position == 0) {
-			refNode = refNode.next;
+			refNode = currNode.next;
 			return refNode;
 		}
-		int count = 1;
-		Node currNode = refNode;
+		int count = 1;  //1,2,3,4,5,6;
+		
 		while (count < position) {
 			currNode = currNode.next;
 			count++;
