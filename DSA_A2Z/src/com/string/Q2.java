@@ -1,5 +1,8 @@
 package com.string;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /*
  * https://leetcode.com/problems/is-subsequence/description/
  * 392. Is Subsequence
@@ -27,7 +30,6 @@ public class Q2 {
 		String t = "ahbgdc";
 		System.out.println(isSubsequence(s, t));
 		System.out.println(isSubsequenceMap(s, t));
-		
 
 	}
 
@@ -35,7 +37,7 @@ public class Q2 {
 		int m = s.length();
 		int n = t.length();
 		int i = 0, j = 0;
-		while (i < m &&j<n) {
+		while (i < m && j < n) {
 			if (s.charAt(i) == t.charAt(j)) {
 				i++;
 			}
@@ -46,6 +48,28 @@ public class Q2 {
 	}
 
 	public static boolean isSubsequenceMap(String s, String t) {
-		return false;
+		Map<Character, Integer> hm = new HashMap<>();
+		for (int i = 0; i < t.length(); i++) {
+			if (hm.containsKey(t.charAt(i))) {
+				hm.put(t.charAt(i), hm.get(t.charAt(i)) + 1);
+			} else {
+				hm.put(t.charAt(i), 1);
+			}
+		}
+
+		for (int i = 0; i < s.length(); i++) {
+			if (hm.containsKey(s.charAt(i))) {
+				hm.put(s.charAt(i), hm.get(s.charAt(i)) - 1);
+			} else {
+				return false;
+			}
+		}
+		for (int i = 0; i < s.length(); i++) {
+			if (hm.get(s.charAt(i)) >= 1) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 }
