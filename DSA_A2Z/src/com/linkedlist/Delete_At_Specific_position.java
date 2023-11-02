@@ -1,8 +1,8 @@
 package com.linkedlist;
 
-import com.linkedlist.Insert_at_specific_position.Node;
-
 public class Delete_At_Specific_position {
+	private static Node head;
+
 	static class Node {
 		int data;
 		Node next;
@@ -13,16 +13,27 @@ public class Delete_At_Specific_position {
 		}
 	}
 
-	public static Node addNode(int data) {
-		return new Node(data);
+	public static void insert(int data) {
+		Node newNode = new Node(data);
+		if (head == null) {
+			head = newNode;
+			return;
+		}
+		Node currNode = head;
+		while (currNode.next != null) {
+			currNode = currNode.next;
+
+		}
+		currNode.next = newNode;
+		return;
 	}
 
-	public static void printLL(Node refNode) {
-		if (refNode == null) {
+	public static void printLL() {
+		if (head == null) {
 			System.out.println("LL is Empty ...");
 			return;
 		}
-		Node currNode = refNode;
+		Node currNode = head;
 		while (currNode != null) {
 			System.out.print(currNode.data + " -> ");
 			currNode = currNode.next;
@@ -31,38 +42,34 @@ public class Delete_At_Specific_position {
 
 	}
 
-	public static void main(String[] args) {
-		Node addNode = addNode(1);
-		addNode.next = addNode(2);
-		addNode.next.next = addNode(3);
-		addNode.next.next.next = addNode(4);
-		addNode.next.next.next.next = addNode(5);
-		addNode.next.next.next.next.next = addNode(6);
-		printLL(addNode);
-		Node deleteAtPosition = deleteAtPosition(addNode, 3);
-		printLL(deleteAtPosition);
-		printLL(addNode);
-	}
+	public static void deleteAtPosition(int position) {
 
-	public static Node deleteAtPosition(Node refNode, int position) {
-		if(refNode==null)
-		{
-			return null;
+		// if LL is empty
+		if (head == null) {
+			return;
 		}
-		Node currNode=refNode;
 		if (position == 0) {
-			refNode = currNode.next;
-			return refNode;
+			head = head.next;
+			return;
 		}
-		int count = 1;  //1,2,3,4,5,6;
-		
+		Node currNode = head;
+		int count = 1;
 		while (count < position) {
 			currNode = currNode.next;
 			count++;
 		}
 		currNode.next = currNode.next.next;
-		return refNode;
 
+	}
+
+	public static void main(String[] args) {
+		insert(1);
+		insert(2);
+		insert(3);
+		insert(4);
+		printLL();
+		deleteAtPosition(2);
+		printLL();
 	}
 
 }
