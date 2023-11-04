@@ -52,6 +52,7 @@ public class Delete_At_Specific_position {
 			head = head.next;
 			return;
 		}
+		
 		Node currNode = head;
 		int count = 1;
 		while (count < position) {

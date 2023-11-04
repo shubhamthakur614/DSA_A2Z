@@ -2,36 +2,39 @@ package com.linkedlist;
 
 public class ReverseLinkedList {
 
-	public static void main(String[] args) {
-		Node addElement = addElement(1);
-		addElement.next = addElement(2);
-		addElement.next.next = addElement(3);
-		addElement.next.next.next = addElement(4);
-		addElement.next.next.next.next = addElement(5);
-
-		printLL(addElement);
-		Node reverseLL = reverseLL(addElement);
-		printLL(reverseLL);
-
-	}
+	private static Node head;
 
 	static class Node {
 		int data;
 		Node next;
 
-		Node(int data) {
+		public Node(int data) {
 			this.data = data;
 			this.next = null;
 		}
 	}
 
-	public static Node addElement(int data) {
-		return new Node(data);
+	public static void insert(int data) {
+
+		Node newNode = new Node(data);
+
+		if (head == null) {
+			head = newNode;
+			return;
+		}
+		Node currNode = head;
+		while (currNode.next != null) {
+			currNode = currNode.next;
+		}
+		currNode.next = newNode;
+		return;
+
 	}
 
 	public static void printLL(Node head) {
 
 		if (head == null) {
+			System.out.println("Linked List is Empty!!!");
 			return;
 		}
 		Node currNode = head;
@@ -39,26 +42,51 @@ public class ReverseLinkedList {
 			System.out.print(currNode.data + " -> ");
 			currNode = currNode.next;
 		}
-		System.out.println(" Null");
+		System.out.println("NULL");
 	}
 
-	public static Node reverseLL(Node head) {
+	public static void reverseLL() {
 
 		if (head == null || head.next == null) {
-			return null;
+			return;
 		}
-		Node prevNode = head;
-		Node currNode = head.next;
+		Node prevNode = null;
+		Node currNode = head;
 		while (currNode != null) {
 			Node nextNode = currNode.next;
 			currNode.next = prevNode;
+
 			prevNode = currNode;
 			currNode = nextNode;
 		}
-		head.next = null;
 		head = prevNode;
-		return head;
 
+	}
+
+	public Node reverseLLRecursive(Node head) {
+
+		if (head == null || head.next == null) {
+			return head;
+		}
+		Node newHead = reverseLLRecursive(head.next);
+		head.next.next = head;
+		head.next = null;
+		return newHead;
+
+	}
+
+	public static void main(String[] args) {
+
+		insert(1);
+		insert(2);
+		insert(3);
+		insert(4);
+		insert(5);
+		printLL(head);
+//		reverseLL();
+		ReverseLinkedList ll = new ReverseLinkedList();
+		Node reverseLLRecursive = ll.reverseLLRecursive(head);
+		printLL(reverseLLRecursive);
 	}
 
 }
