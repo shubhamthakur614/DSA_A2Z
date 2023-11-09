@@ -16,16 +16,16 @@ public class SelectionSort {
 		
 		for(int i=0;i<arr.length-1;i++)
 		{
-			int min =i;
-			for(int j=i;j<arr.length;j++)
+			int minIndex =i;
+			for(int j=i+1;j<arr.length;j++)
 			{
-				if(arr[min]>arr[j])
+				if(arr[minIndex]>arr[j])
 				{
-					min=j;
+					minIndex=j;
 				}
 			}
-			int temp=arr[min];
-			arr[min]=arr[i];
+			int temp=arr[minIndex];
+			arr[minIndex]=arr[i];
 			arr[i]=temp;
 		}
 		System.out.println(Arrays.toString(arr));
