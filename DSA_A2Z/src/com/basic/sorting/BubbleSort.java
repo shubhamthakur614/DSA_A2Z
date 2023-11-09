@@ -1,7 +1,5 @@
 package com.basic.sorting;
 
-import java.util.Arrays;
-
 /*
  * Bubble Sort
  * 1)In bubble sort the larger element is place at end of list first
@@ -13,19 +11,27 @@ public class BubbleSort {
 
 	public static void main(String[] args) {
 		int[] arr = new int[] { 13, 46, 24, 52, 20, 9 };
+//		int[] arr = new int[] { 1, 2, 3, 4, 5, 6 };
 		bubbleSort(arr);
 	}
 
 	public static void bubbleSort(int[] arr) {
+		int size = arr.length;
 
-		// largest element is place at last of the list by adjacent swapping
-		for (int i = arr.length - 1; i >= 0; i--) {
+		System.out.println("Before sorting: ");
+
+		for (int num : arr) {
+			System.out.print(num + " ");
+		}
+
+		for (int i = 0; i < size; i++) {
 			boolean swapped = false;
-			for (int j = 0; j <= i - 1; j++) {
+
+			// every iteration we have highest element at last so we don't need to compare
+
+			for (int j = 0; j < size - i - 1; j++) {
 				if (arr[j] > arr[j + 1]) {
-					int temp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp;
+					swap(j, j + 1, arr);
 					swapped = true;
 				}
 			}
@@ -33,6 +39,19 @@ public class BubbleSort {
 				break;
 			}
 		}
-		System.out.println(Arrays.toString(arr));
+
+		System.out.println("\n After sorting: ");
+
+		for (int num : arr) {
+			System.out.print(num + " ");
+		}
+
+	}
+
+	public static void swap(int a, int b, int[] arr) {
+		int temp = arr[a];
+		arr[a] = arr[b];
+		arr[b] = temp;
+
 	}
 }
