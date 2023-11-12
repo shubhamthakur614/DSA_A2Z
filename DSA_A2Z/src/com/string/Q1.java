@@ -12,10 +12,10 @@ public class Q1 {
 		String str = "my name is shubham";
 		System.out.println(str + "--original String");
 		System.out.println(stringRev1(str));
-		System.out.println(stringRev2(str));
-		System.out.println(stringrev21(str) + "-- another solution using split method");
-
-		System.out.println(stringRev3(str));
+//		System.out.println(stringRev2(str));
+//		System.out.println(stringrev21(str) + "-- another solution using split method");
+//
+//		System.out.println(stringRev3(str));
 
 	}
 
