@@ -1,6 +1,6 @@
-package com.low_level_design_pattern;
+package com.low_level_design_pattern.singleton;
 
-import java.util.concurrent.Executor;
+import java.lang.reflect.Constructor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -16,16 +16,27 @@ import java.util.concurrent.Executors;
  */
 public class SingletonDesignPattern {
 
-	public static void main(String[] args) {
-//		TvSet tvSet = TvSet.getTvSetInstance();
+	public static void main(String[] args)throws Exception {
+		TvSet tvSet = TvSet.getTvSetInstance();
 //		TvSet tvSet1 = TvSet.getTvSetInstance();
-//		System.out.println(tvSet.hashCode());
+		System.out.println(tvSet.hashCode());
 //		System.out.println(tvSet1.hashCode());
 		ExecutorService executorService = Executors.newFixedThreadPool(2);
 		executorService.execute(() -> TvSet.getTvSetInstance());
 		executorService.execute(() -> TvSet.getTvSetInstance());
 		executorService.execute(() -> TvSet.getTvSetInstance());
 		executorService.execute(() -> TvSet.getTvSetInstance());
+		
+		//it is possible to break sigleton design pattern by reflection API 
+		
+		Constructor<TvSet> constructors = TvSet.class.getDeclaredConstructor();
+		//it will throw Illegal Argument Exception Exception
+		//so before this make access true
+		constructors.setAccessible(true);
+		TvSet newInstance = constructors.newInstance();
+		System.out.println(newInstance.hashCode());
+		
+		
 
 	}
 }

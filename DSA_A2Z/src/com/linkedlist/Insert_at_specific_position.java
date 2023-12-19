@@ -49,7 +49,13 @@ public class Insert_at_specific_position {
 	public static void insert_at_given_position(int data, int index) {
 
 		Node newNode = new Node(data);
-		//if i want to insert at first Position
+		if (head == null) {
+			head=newNode;
+			return;
+			
+			
+		}
+		// if i want to insert at first Position
 		if (index == 0) {
 			newNode.next = head;
 			head = newNode;
@@ -77,6 +83,5 @@ public class Insert_at_specific_position {
 		insert_at_given_position(14, 2);
 		printLL();
 	}
-
 
 }

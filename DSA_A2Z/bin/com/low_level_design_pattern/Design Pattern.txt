@@ -1,0 +1,43 @@
+Design Pattern 
+
+-This design is used at the time of creating or scaling your application irrespective of which programming language you are using.
+
+--Every design pattern is classified into some type
+1)Creational Design Pattern(builder,Singleton,Factory)
+2)Structural Design Pattern ()
+3)Behavioural Design Pattern (): How to Object interact with each other it will decide
+
+1)Single design Pattern 
+--in this design pattern basically, we create a single object and we are reusing this object based on our requirement.
+--here we are making the constructor private and making a static method that returns the same class object either early or lazy loading.
+--so if we are uing our application in the multithreaded environment using executorservice.executer() at the time two threads will create an object that is why we will use the synchronization concept with double-check.
+----1----Reflcetion API
+--we can break singleton design patterns by using reflection API
+--just use className.class.getDeclereadConstructor will return the constructor and u need to use setAccesc(true) and create newInstance().
+--VImp to get ride of this reflection Api inside constructor will check if object allredy created then will return Exception this is how we get ride of refelction APi
+
+----2---ENUM instead of class
+--we can use enum instead of class and we need just any varibale without type and just remove everything and use classname.instacename to get object 
+
+
+---3--Deserialization
+--by using deserialization through we can breck design pattern inside somewhere conning can be done we can resolve this byreadResolve()
+
+--4---Cloning
+if we implament clone method from object class it will give you the new object
+--so we overide the clone method in our class by preoviding clone as our object only
+
+
+2)Factory Design Pattern
+--if we have parent (Interface) and we are providing implementation of parent in child so if we are creating the object of child based on i/p its not recommendate to create object
+with client class .its not good practice to show the object creation infront of client so we will create factoryClass.
+-in that class we crete static method will return use object based on out type i/p which object you wnat and we return object to client without knowing him internal logic for the same
+
+
+3)Abstract  Design pattern
+
+--it provide more flexibilities as it adding again new layer
+
+
+
+

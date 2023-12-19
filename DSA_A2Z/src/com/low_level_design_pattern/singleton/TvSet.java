@@ -1,10 +1,13 @@
-package com.low_level_design_pattern;
+package com.low_level_design_pattern.singleton;
 
 public class TvSet {
 
 	private static volatile TvSet tvSetInstance = null;
 
 	private TvSet() {
+		if (tvSetInstance != null) {
+			throw new RuntimeException("you are trying to break singleton Pattern!!!!!!!!!!!!!!");
+		}
 		System.out.println("Instancetiated only once...");
 	}
 
