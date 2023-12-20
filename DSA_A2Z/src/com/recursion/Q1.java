@@ -40,7 +40,7 @@ public class Q1 {
 			return 1;
 		}
 		int temp = naturalNumber(n - 1);
-		return temp + n;
+ 		return temp + n;
 	}
 
 	public static int factorial(int n) {
