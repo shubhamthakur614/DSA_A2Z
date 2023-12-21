@@ -6,30 +6,36 @@ import java.util.List;
 public class Test {
 
 	public static void main(String[] args) {
-		int n = 5;
-		List<List<Integer>> pascale = pascale(n);
-		for(List l:pascale) {
-			System.out.println(l);
-		}
+		List<Integer> arrayList = new ArrayList<>();
+		arrayList.add(1);
+		arrayList.add(2);
+		arrayList.add(3);
+		arrayList.add(4);
+		arrayList.add(5);
 
+		int k = 2;
+
+		rotate(arrayList, k);
+
+		System.out.println("ArrayList after rotation: " + arrayList);
 	}
 
-	public static List<List<Integer>> pascale(int n) {
-
-		List<List<Integer>> result = new ArrayList();
-		for (int i = 1; i <= n; i++) {
-			List<Integer> row = new ArrayList<>();
-			for (int j = 0; j < i; j++) {
-				if (j == 0 || j == i - 1) {
-					row.add(1);
-				} else {
-					row.add(result.get(i - 2).get(j) + result.get(i - 2).get(j - 1));
-				}
-
-			}
-			result.add(row);
-		}
-		return result;
+	public static void rotate(List<Integer> nums, int k) {
+		int n = nums.size();
+		k = k % n;
+		reversePart(nums, 0, n - 1);
+		reversePart(nums, 0, k - 1);
+		reversePart(nums, k, n - 1);
 	}
 
+	public static void reversePart(List<Integer> arr, int s, int e) {
+		while (s < e) {
+			// Swap elements at indices s and e
+			int temp = arr.get(s);
+			arr.set(s, arr.get(e));
+			arr.set(e, temp);
+			s++;
+			e--;
+		}
+	}
 }

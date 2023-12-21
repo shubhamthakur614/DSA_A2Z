@@ -13,7 +13,9 @@ public class Q7 {
 		System.out.println(Arrays.toString(nums));
 		int k = 2;
 //		System.out.println(Arrays.toString(rotation(nums, k)));
-		System.out.println(Arrays.toString(rotation1(nums, k)));
+//		System.out.println(Arrays.toString(rotation1(nums, k)));
+		rotate2(nums, k);
+		System.out.println(Arrays.toString(nums));
 	}
 
 	// bruteforce approach O(n^2)
@@ -54,4 +56,23 @@ public class Q7 {
 		}
 	}
 
+	// best approach
+	public static void rotate2(int[] arr, int k) {
+
+		int n = arr.length;
+		k = k % n;
+		rotatePart(arr, 0, n - 1);
+		rotatePart(arr, 0, k - 1);
+		rotatePart(arr, k, n - 1);
+	}
+
+	public static void rotatePart(int[] arr, int s, int e) {
+		while (s < e) {
+			int temp = arr[s];
+			arr[s] = arr[e];
+			arr[e] = temp;
+			s++;
+			e--;
+		}
+	}
 }
