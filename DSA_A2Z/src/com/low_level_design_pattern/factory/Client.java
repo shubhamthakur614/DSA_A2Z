@@ -16,16 +16,16 @@ package com.low_level_design_pattern.factory;
  * 
  */
 public class Client {
-	public static void main(String[] args) {
+	public static void main(String[] args) {  
 
 		// if client want to create the object for java Developer then he just pass
 		// argument as java without knowing the actual logic
 
-		Employee employee = DevelolperFactory.getEmployee("JAVa");
+		Employee employee = DevelolperFactory.getEmployee(DeveloperType.Java);
 		int javaSalary = employee.salary();
 		System.out.println(javaSalary);
 
-		Employee employee1 = DevelolperFactory.getEmployee("Android");
+		Employee employee1 = DevelolperFactory.getEmployee(DeveloperType.Android);
 		int androidSalary = employee1.salary();
 		System.out.println(androidSalary);
 

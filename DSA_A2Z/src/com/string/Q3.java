@@ -16,7 +16,7 @@ public class Q3 {
 		String s2 = "listen";
 		System.out.println(isAnagram(s1, s2));
 		System.out.println(isAnagram1(s1, s2));
-		System.out.println(isAnagram3(s1,s2));
+		System.out.println(isAnagram3(s1, s2));
 
 	}
 
@@ -65,31 +65,30 @@ public class Q3 {
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
 
-	
-public boolean isAnagram3(String s, String t) {
-       int m=s.length();
-       int n=t.length();
+	public static boolean isAnagram3(String s, String t) {
+		int m = s.length();
+		int n = t.length();
 
-       if(m!=n){
-           return false;
-       }
-       int[] count=new int[26];
+		if (m != n) {
+			return false;
+		}
+		int[] count = new int[26];
 
-       for(int i=0;i<m;i++){
-         count[s.charAt(i)-'a']++;
-         count[t.charAt(i)-'a']--;
+		for (int i = 0; i < m; i++) {
+			count[s.charAt(i) - 'a']++;
+			count[t.charAt(i) - 'a']--;
 
-       }
-       for(int c:count){
-           if(c!=0){
-               return false;
-           }
-       }
-       return true;
+		}
+		for (int c : count) {
+			if (c != 0) {
+				return false;
+			}
+		}
+		return true;
 
-    }
+	}
 }

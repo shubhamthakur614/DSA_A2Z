@@ -23,4 +23,6 @@ public class TvSet {
 		return tvSetInstance;
 	}
 
+	// t0 -t1
+//	  t5 -t1 ,t3
 }

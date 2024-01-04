@@ -27,7 +27,7 @@ public class SingletonDesignPattern {
 		executorService.execute(() -> TvSet.getTvSetInstance());
 		executorService.execute(() -> TvSet.getTvSetInstance());
 		
-		//it is possible to break sigleton design pattern by reflection API 
+		//it is possible to break singleton design pattern by reflection API 
 		
 		Constructor<TvSet> constructors = TvSet.class.getDeclaredConstructor();
 		//it will throw Illegal Argument Exception Exception
