@@ -17,13 +17,14 @@ public class _1ImplementingSatackUsingLL {
 
 	static class Stack {
 		public static Node head;
+		static int count = 0;
 
 		public static boolean isEmpty() {
 			return head == null;
 		}
 
 		public static void push(int data) {
-
+			count++;
 			Node newNode = new Node(data);
 			if (isEmpty()) {
 				head = newNode;
@@ -48,6 +49,10 @@ public class _1ImplementingSatackUsingLL {
 			}
 			return head.data;
 		}
+
+		public static int size() {
+			return count;
+		}
 	}
 
 	public static void main(String[] args) {
@@ -60,6 +65,7 @@ public class _1ImplementingSatackUsingLL {
 		while (!s.isEmpty()) {
 			System.out.println(s.pop());
 		}
+		System.out.println("Size of Stack is: " + s.size());
 	}
 
 }
