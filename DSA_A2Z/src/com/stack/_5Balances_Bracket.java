@@ -1,11 +1,12 @@
-package com.stack;
+  package com.stack;
 
 import java.util.Stack;
 
 public class _5Balances_Bracket {
 	public static void main(String[] args) {
 
-		String s = "(()((((()(";
+//		String s = "(()((((()(";
+		String s="()";
 		System.out.println(isValid(s));
 
 		System.out.println(isValidParenthesis(s));
@@ -20,11 +21,11 @@ public class _5Balances_Bracket {
 			} else {
 				if (stack.isEmpty())
 					return false;
-				if (c == ')' && stack.peek() != '(')
+				if (c == ')' && stack.pop() != '(')
 					return false;
-				if (c == '}' && stack.peek() != '{')
+				if (c == '}' && stack.pop() != '{')
 					return false;
-				if (c == ']' && stack.peek() != ']')
+				if (c == ']' && stack.pop() != ']')
 					return false;
 			}
 		}

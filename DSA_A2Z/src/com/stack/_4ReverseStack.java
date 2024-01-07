@@ -33,6 +33,7 @@ public class _4ReverseStack {
 		s.push(2);
 		s.push(3);
 		s.push(4);
+
 		reverse(s);
 		while (!s.isEmpty()) {
 			System.out.println(s.pop());

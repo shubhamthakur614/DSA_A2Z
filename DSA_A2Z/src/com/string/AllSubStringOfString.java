@@ -1,3 +1,4 @@
+
 package com.string;
 
 // find all substring of given string
