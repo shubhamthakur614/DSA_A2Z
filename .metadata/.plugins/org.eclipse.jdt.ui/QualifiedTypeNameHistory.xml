@@ -12,7 +12,6 @@
     <fullyQualifiedTypeName name="com.low_level_design_pattern.abstract_pattern.JavaDevFactory"/>
     <fullyQualifiedTypeName name="java.util.stream.IntStream"/>
     <fullyQualifiedTypeName name="com.java8.Employee"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.util.Comparator"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
@@ -22,4 +21,5 @@
     <fullyQualifiedTypeName name="com.stack.Stack"/>
     <fullyQualifiedTypeName name="java.util.Stack"/>
     <fullyQualifiedTypeName name="com.stack.Q1.MyStack"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
 </qualifiedTypeNameHistroy>
