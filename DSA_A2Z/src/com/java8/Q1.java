@@ -89,7 +89,7 @@ public class Q1 {
 				.distinct().skip(1).findFirst().get();
 		System.out.println(secHighestFromEmployee);
 		// another solution using comparingDouble
-		Employee employee = elist.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).distinct()
+		Employee employee = elist.stream().sorted(Comparator.comparingDouble(Employee::getSalary)).distinct()
 				.skip(1).findFirst().get();
 
 		System.out.println(employee);

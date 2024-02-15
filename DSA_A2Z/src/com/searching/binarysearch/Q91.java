@@ -11,7 +11,7 @@ public class Q91 {
 	 */
 		public static void main(String[] args) {
 
-			int x = 2147395599;
+			int x = 26;
 			System.out.println(squrt(x));
 		}
 

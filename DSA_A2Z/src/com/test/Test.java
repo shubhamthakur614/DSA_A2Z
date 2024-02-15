@@ -1,64 +1,84 @@
 package com.test;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Employee {
+	int id;
+	String name;
+	String department;
+	Double salary;
+
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Employee(int id, String name, String department, Double salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.department = department;
+		this.salary = salary;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", department=" + department + ", salary=" + salary + "]";
+	}
+}
+
 public class Test {
-
-	static class Node {
-		int data;
-		Node next;
-
-		public Node(int data) {
-			this.data = data;
-			this.next = null;
-		}
-	}
-
-	static class Stack {
-
-		public static Node head;
-		static int count = 0;
-
-		public static boolean isEmpty() {
-			return head == null;
-		}
-
-		public static void push(int data) {
-			count++;
-			Node newNode = new Node(data);
-			if (isEmpty()) {
-				head = newNode;
-				return;
-			}
-			newNode.next = head;
-			head = newNode;
-		}
-
-		public static int pop() {
-			int temp = head.data;
-			head = head.next;
-			return temp;
-		}
-
-		public static int peek() {
-			return head.data;
-		}
-
-		public static int size() {
-			return count;
-		}
-
-	}
-
 	public static void main(String[] args) {
+		List<Employee> e = new ArrayList<>();
+		e.add(new Employee(1, "Z", "HR", 32000.0));
+		e.add(new Employee(1, "x", "SD", 14000.0));
+		e.add(new Employee(1, "S", "SD", 45000.0));
+		e.add(new Employee(1, "V", "HR", 34000.0));
+		e.add(new Employee(1, "T", "ST", 142000.0));
 
-		Stack s = new Stack();
-		s.push(1);
-		s.push(2);
-		s.push(3);
-		s.push(4);
-//		s.pop();
-		while (!s.isEmpty()) {
-			System.out.println(s.pop());
-		}
+		e.forEach(x -> {
+			System.out.println(x.getId() + " " + x.getName() + " " + x.getDepartment() + " " + x.getSalary());
+		});
+		System.out.println();
+		e.sort(Comparator.comparing(Employee::getDepartment).thenComparingDouble(Employee::getSalary).reversed());
+
+		e.forEach(x -> {
+			System.out.println(x.getId() + " " + x.getName() + " " + x.getDepartment() + " " + x.getSalary());
+		});
 	}
-
 }

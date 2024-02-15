@@ -1,4 +1,4 @@
-package com.array;
+  package com.array;
 //it is also called as maxsubarray from given array
 
 import java.util.Arrays;
@@ -50,7 +50,7 @@ public class KadanesAlgorithm {
 				max = curr;
 				// when max is initialize with curr then start updating your start and end
 				// pointer
-				start = end;
+				start = temp;
 				end = i;
 			}
 			// if not then check if curr is negative or not if negative make it 0
