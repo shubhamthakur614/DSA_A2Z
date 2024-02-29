@@ -16,6 +16,7 @@ public class Q1 {
 		System.out.println(stringrev21(str) + "-- another solution using split method");
 
 		System.out.println(stringRev3(str));
+		System.out.println(stringRev4(str));
 
 	}
 
@@ -91,6 +92,33 @@ public class Q1 {
 		String rev = "";
 		for (int i = str.length() - 1; i >= 0; i--) {
 			rev += str.charAt(i);
+		}
+		return rev;
+	}
+
+	public static String stringRev4(String str) {
+		int n = str.length() - 1;
+		String rev = "";
+		char[] c = str.toCharArray();
+		int f = n;
+		int l = n;
+		for (int i = n; i >= 0; i--) {
+			if (c[i] == ' ' || i == 0) {
+				f = i == 0 ? i : i + 1;
+				rev += swap(c, f, l);
+				if (i > 0) {
+					rev += " ";
+				}
+				l = i - 1;
+			}
+		}
+		return rev;
+	}
+
+	public static String swap(char[] c, int a, int b) {
+		String rev = "";
+		for (int i = a; i <= b; i++) {
+			rev += c[i];
 		}
 		return rev;
 	}
