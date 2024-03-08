@@ -108,6 +108,37 @@ public class Q1 {
 		}
 	}
 
+	public static int countOfNode(Node root) {
+		if (root == null) {
+			return 0;
+		}
+		int leftCount = countOfNode(root.left);
+		int rightCount = countOfNode(root.right);
+		return leftCount + rightCount + 1;
+	}
+
+	public static int sumOfNode(Node root) {
+		if (root == null) {
+			return 0;
+		}
+		int leftSum = sumOfNode(root.left);
+		int rightSum = sumOfNode(root.right);
+		return leftSum + rightSum + root.data;
+
+	}
+
+	public static int maxHeight(Node root) {
+
+		if (root == null) {
+			return 0;
+		}
+		int leftHeight = maxHeight(root.left);
+		int rightHeight = maxHeight(root.right);
+		int maxHeight = Math.max(leftHeight, rightHeight) + 1;
+		return maxHeight;
+
+	}
+
 	public static void main(String[] args) {
 
 		int[] nodes = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
@@ -122,6 +153,12 @@ public class Q1 {
 		postOrder(root);
 		System.out.println("\n Level order .....");
 		levelOrder(root);
+		System.out.println("Count of Node");
+		System.out.println(countOfNode(root));
+		System.out.println("Count of Node");
+		System.out.println(sumOfNode(root));
+		System.out.println("Height of Node");
+		System.out.println(maxHeight(root));
 
 	}
 
