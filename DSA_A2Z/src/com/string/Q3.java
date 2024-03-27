@@ -1,4 +1,4 @@
-     package com.string;
+package com.string;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -38,6 +38,10 @@ public class Q3 {
 	// optimal with edge case of time complexity o(N) space complexity O(N)
 	public static boolean isAnagram1(String s1, String s2) {
 
+		int m = s1.length();
+		int n = s2.length();
+		if (m != n)
+			return false;
 		Map<Character, Integer> hm = new HashMap<>();
 
 		// in case of string s1 if element present increase the value by 1

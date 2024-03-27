@@ -12,7 +12,7 @@ language you are using.
 --in this design pattern basically, we create a single object and we are reusing this object based on our requirement.
 --here we are making the constructor private and making a static method that returns the same class object either 
 early or lazy loading.
---so if we are uing our application in the multithreaded environment using executorservice.executer() at the time 
+--so if we are using our application in the multithreaded environment using executorservice.executer() at the time 
 two threads will create an object that is why we will use the synchronization concept with double-check.
 ----1----Reflcetion API
 --we can break singleton design patterns by using reflection API

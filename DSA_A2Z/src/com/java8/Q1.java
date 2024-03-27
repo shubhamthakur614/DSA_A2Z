@@ -76,9 +76,18 @@ public class Q1 {
 		Employee e5 = new Employee(3, "Prakash", "HR", 3500);
 		List<Employee> elist = Arrays.asList(e1, e2, e3, e4, e5);
 
+		// find the highest and lowest no from list
+		int max = alist.stream().mapToInt(Integer::intValue).max().getAsInt();
+
+		int min = alist.stream().mapToInt(Integer::intValue).min().getAsInt();
+		System.out.println("Max value: " + max + " , Min Value: " + min);
+
 		// find the highest and lowest Salary of Employee
 		Employee maxSalaryEmp = elist.stream().max(Comparator.comparingDouble(Employee::getSalary)).get();
 		System.out.println("Maximum salary employee: " + maxSalaryEmp);
+
+		Employee minSalaryEmp = elist.stream().min(Comparator.comparingDouble(Employee::getSalary)).get();
+		System.out.println("Minimum salary employee: " + minSalaryEmp);
 
 		// find sec highest no from array
 		Integer secHighest = alist.stream().sorted((x, y) -> y - x).distinct().skip(1).findFirst().get();
@@ -89,8 +98,8 @@ public class Q1 {
 				.distinct().skip(1).findFirst().get();
 		System.out.println(secHighestFromEmployee);
 		// another solution using comparingDouble
-		Employee employee = elist.stream().sorted(Comparator.comparingDouble(Employee::getSalary)).distinct()
-				.skip(1).findFirst().get();
+		Employee employee = elist.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).distinct().skip(1)
+				.findFirst().get();
 
 		System.out.println(employee);
 
