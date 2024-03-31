@@ -3,7 +3,7 @@ package com.linkedlist;
 /*
  *  10 12 15 17 
  *  insert at position 1 is 14 and use as start from 0
- *  10 14 12 15  
+ *  10 14 12 15 17 
  */
 public class Insert_at_specific_position {
 

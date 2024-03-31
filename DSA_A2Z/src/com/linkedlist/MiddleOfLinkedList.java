@@ -39,31 +39,30 @@ public class MiddleOfLinkedList {
 		}
 		System.out.println("NULL");
 	}
-	
-	//Bruteforce Approach
-	public static int length(Node head){
-	     Node currNode=head;
-	     int count=0;
-	     while(currNode!=null){
-	         currNode=currNode.next;
-	         count++;
-	     }
-	     return count;
 
-	    }
-	    
-	    public static Node findMiddle(Node head)
-	    {
-	       int count=length(head);
-	       int ans=count/2;
-	       int cnt=0;
-	       Node temp=head;
-	       while(cnt<ans){
-	           temp=temp.next;
-	           cnt++;
-	       }
-	       return temp;
-	    }
+	// Bruteforce Approach
+	public static int length(Node head) {
+		Node currNode = head;
+		int count = 0;
+		while (currNode != null) {
+			currNode = currNode.next;
+			count++;
+		}
+		return count;
+
+	}
+
+	public static Node findMiddle(Node head) {
+		int count = length(head);
+		int ans = count / 2;
+		int cnt = 0;
+		Node temp = head;
+		while (cnt < ans) {
+			temp = temp.next;
+			cnt++;
+		}
+		return temp;
+	}
 
 	// to find the midddle of first if it is even one way
 	public static Node findMiddleFirst(Node head) {
@@ -113,9 +112,9 @@ public class MiddleOfLinkedList {
 		insert(5);
 		insert(6);
 		printLL();
-		head=findMiddle(head);
+		head = findMiddle(head);
 		printLL();
-		
+
 		// when we need to get first even mid use this
 //		head = findMiddleFirst(head);
 //		printLL();

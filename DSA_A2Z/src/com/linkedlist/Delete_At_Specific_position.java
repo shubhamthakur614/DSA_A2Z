@@ -69,7 +69,7 @@ public class Delete_At_Specific_position {
 		insert(3);
 		insert(4);
 		printLL();
-		deleteAtPosition(2);
+		deleteAtPosition(1);
 		printLL();
 	}
 

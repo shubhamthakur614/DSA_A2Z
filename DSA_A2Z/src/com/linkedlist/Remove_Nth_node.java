@@ -58,7 +58,7 @@ public class Remove_Nth_node {
 	public static Node removeAtNode(Node head, int n) {
 		if (head.next == null) {
 			head = null;
-			return null;
+			return head;
 		}
 
 //		find the size
@@ -68,6 +68,7 @@ public class Remove_Nth_node {
 			currNode = currNode.next;
 			size++;
 		}
+
 		if (size == n) {
 			head = head.next;
 			return head;

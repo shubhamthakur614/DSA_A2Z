@@ -18,14 +18,18 @@ public class Q2 {
 		Employee e5 = new Employee(1, "Prakash", "HR", 3500);
 		List<Employee> elist = Arrays.asList(e1, e2, e3, e4, e5);
 
-		// find the employee whose salary mAaximum in its department
+		// find the employee whose salary maximum in its department
 		Map<String, Optional<Employee>> collect = elist.stream().collect(Collectors.groupingBy(Employee::getDepartment,
 				Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary))));
-		System.out.println(collect);
 
-		collect.forEach((key, value) -> {
+		Map<String, Employee> collect2 = elist.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.collectingAndThen(
+						Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)), Optional::get)));
+		System.out.println(collect2);
+
+		collect2.forEach((key, value) -> {
 			System.out.println(key);
-			System.out.println(value.get().getName()+" ");
+			System.out.println(value.getName() + " ");
 		});
 
 	}

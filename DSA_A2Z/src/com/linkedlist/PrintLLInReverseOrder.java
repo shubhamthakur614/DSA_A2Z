@@ -1,7 +1,5 @@
 package com.linkedlist;
 
-import com.linkedlist.Insert_at_specific_position.Node;
-
 class LinkedList {
 
 }
@@ -50,7 +48,7 @@ public class PrintLLInReverseOrder {
 			return;
 		}
 		reversePrintLL(head.next);
-		System.out.print(head.data+" -> ");
+		System.out.print(head.data + " -> ");
 		return;
 
 	}
