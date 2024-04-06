@@ -60,10 +60,10 @@ public class ReverseLinkedList {
 			currNode = nextNode;
 		}
 		head = prevNode;
- 
+
 	}
 
-	public Node reverseLLRecursive(Node head) {
+	public static Node reverseLLRecursive(Node head) {
 
 		if (head == null || head.next == null) {
 			return head;
@@ -85,7 +85,7 @@ public class ReverseLinkedList {
 		printLL(head);
 //		reverseLL();
 		ReverseLinkedList ll = new ReverseLinkedList();
-		Node reverseLLRecursive = ll.reverseLLRecursive(head);
+		Node reverseLLRecursive = reverseLLRecursive(head);
 		printLL(reverseLLRecursive);
 	}
 

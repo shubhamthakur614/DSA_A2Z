@@ -84,6 +84,9 @@ public class MiddleOfLinkedList {
 	public static Node findMiddleSec(Node head) {
 		if (head == null || head.next == null) {
 			return head;
+		
+		
+		
 		}
 
 		// when we have only two element and we have to return sec one in even
@@ -110,17 +113,17 @@ public class MiddleOfLinkedList {
 		insert(3);
 		insert(4);
 		insert(5);
-		insert(6);
+//		insert(6);
 		printLL();
-		head = findMiddle(head);
-		printLL();
+//		head = findMiddle(head);
+//		printLL();
 
 		// when we need to get first even mid use this
 //		head = findMiddleFirst(head);
 //		printLL();
 		// when we need sec middle of even hide above and get
-//		head = findMiddleSec(head);
-//		printLL();
+		head = findMiddleSec(head);
+		printLL();
 
 	}
 }

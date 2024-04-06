@@ -84,4 +84,36 @@ public class Remove_Nth_node {
 		return head;
 	}
 
+	// sec solution by using two pointer approach
+	/*
+	 * Here we take two pointer at head slow and fast and check if my asking idx is
+	 * greater than zero then iterate your fast ptr greater than upto zero check if
+	 * my fast is equal to null if yes then head.next if not then iterater unless my
+	 * fast.next equal to null and move both the ptr once fast reaches to null then
+	 * slow next connect to its next.next and return head
+	 */
+	public static Node removeAtLastNode(Node head, int idx) {
+		if (head == null) {
+			head = null;
+			return head;
+		}
+		Node slow = head;
+		Node fast = head;
+		while (idx > 0) {
+			fast = fast.next;
+			idx--;
+		}
+		// edge case when idx is equal to size then move head pointer to next
+		if (fast == null) {
+			head = head.next;
+			return head;
+		}
+		while (fast.next != null) {
+			slow = slow.next;
+			fast = fast.next;
+		}
+		slow.next = slow.next.next;
+		return head;
+	}
+
 }
