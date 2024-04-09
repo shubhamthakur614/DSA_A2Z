@@ -4,6 +4,7 @@ package com.linkedlist;
 import com.linkedlist.LinkedListDemo.Node;
 
 //leetcode 142
+//if cycle present in linked list return the starting index node of linked list
 //if linklist dont have cycle then return null;
 
 public class LinkListCycle2 {
@@ -26,19 +27,19 @@ public class LinkListCycle2 {
 
 	public static Node LinkListCycleTwo(Node head) {
 
-		if (head == null) {
+		if (head == null || head.next == null) {
 			return null;
 		}
-		Node slow = head;
 		Node fast = head;
-		while (fast != null || fast.next != null) {
+		Node slow = head;
+		Node temp = head;
+		while (fast.next != null && fast.next.next != null) {
 			fast = fast.next.next;
 			slow = slow.next;
-			if (slow == fast) {
-				while (head != slow) {
-					head = head.next;
+			if (fast == slow) {
+				while (temp != slow) {
+					temp = temp.next;
 					slow = slow.next;
-
 				}
 				return slow;
 			}

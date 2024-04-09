@@ -70,10 +70,7 @@ public class RotateLL {
 
 	public static Node findkthNode(Node temp, int k) {
 		int cnt = 1;
-		while (temp != null) {
-			if (k == cnt) {
-				return temp;
-			}
+		while (cnt < k) {
 			temp = temp.next;
 			cnt++;
 		}
