@@ -48,6 +48,11 @@ and we return object to client without knowing him internal logic for the same
 
 --it provide more flexibilities as it adding again new layer
 
+4)Decorator Design pattern LLD
+this pattern used in coffee machine ,hotel cost kind of senario it is used
+
+
+
 
 
 
