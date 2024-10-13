@@ -1,5 +1,4 @@
 package com.array;
-
 import java.util.Arrays;
 
 //Reverse the array
