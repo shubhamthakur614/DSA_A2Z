@@ -2,7 +2,7 @@ package com.sorting;
 
 import java.util.Arrays;
 
-//time complexity is (n logn)
+//Time complexity is (n log(n))
 //extra n because of every level we are storing element in the array
 public class MergeSort {
 	public static void main(String[] args) {
@@ -13,7 +13,7 @@ public class MergeSort {
 
 	}
 
-	// it follow divide and conqure technique
+	// it follow divide and conquer technique
 	public static void mergeSort(int[] arr, int n) {
 
 		divide(arr, 0, n - 1);
