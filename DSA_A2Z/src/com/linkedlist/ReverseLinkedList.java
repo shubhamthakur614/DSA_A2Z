@@ -1,6 +1,5 @@
 package com.linkedlist;
 
-import com.string.Test.Node;
 
 public class ReverseLinkedList {
 
