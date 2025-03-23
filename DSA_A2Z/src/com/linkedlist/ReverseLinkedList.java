@@ -1,5 +1,7 @@
 package com.linkedlist;
 
+import com.string.Test.Node;
+
 public class ReverseLinkedList {
 
 	private static Node head;
@@ -69,9 +71,19 @@ public class ReverseLinkedList {
 			return head;
 		}
 		Node newHead = reverseLLRecursive(head.next);
+		
+	//This way also we can do the same
+	
+	//		Node front=head.next;
+	//		front.next=head;
+	//		head.next=null;
+	//		return newHead;
+		
 		head.next.next = head;
 		head.next = null;
 		return newHead;
+		
+		
 
 	}
 
@@ -84,7 +96,7 @@ public class ReverseLinkedList {
 		insert(5);
 		printLL(head);
 //		reverseLL();
-		ReverseLinkedList ll = new ReverseLinkedList();
+//		ReverseLinkedList ll = new ReverseLinkedList();
 		Node reverseLLRecursive = reverseLLRecursive(head);
 		printLL(reverseLLRecursive);
 	}

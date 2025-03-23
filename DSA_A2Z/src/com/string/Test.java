@@ -1,66 +1,194 @@
 package com.string;
 
-import java.util.Arrays;
-
 public class Test {
-	public static void main(String[] args) {
-		int[] arr = { 3, 2, 7, 4, 6, 1 };
-		System.out.println(Arrays.toString(arr));
-//	 		bubbleSort(arr);
-//		insertionSort(arr);
-//		selectionSort(arr);
-		mergeSort(arr);
-		System.out.println(Arrays.toString(arr));
 
-	}
+	private static Node head;
 
-	public static void bubbleSort(int[] arr) {
+	static class Node {
 
-		for (int i = 0; i < arr.length; i++) {
-			boolean swapped = false;
-			for (int j = 0; j < arr.length - 1; j++) {
-				if (arr[j] > arr[j + 1]) {
-					swap(arr, j, j + 1);
-					swapped = true;
-				}
-			}
-			if (!swapped) {
-				break;
-			}
-		}
-	}
+		int data;
+		Node next;
 
-	public static void insertionSort(int[] arr) {
-		for (int i = 0; i < arr.length; i++) {
-			int j = i;
-			while (j > 0 && arr[j - 1] > arr[j]) {
-				swap(arr, j, j - 1);
-				j--;
-			}
-		}
-	}
-	
-	public static void selectionSort(int []arr) {
-			
-		for(int i=0;i<arr.length;i++) {
-			int min=i;
-			for(int j=i;j<arr.length;j++) {
-				if(arr[j]<arr[min]) {
-					min=j;
-				}
-			}
-			swap(arr,min,i);
-			
+		public Node(int data) {
+			this.data = data;
+			this.next = null;
 		}
 		
 	}
-	public static void swap(int[] arr, int a, int b) {
-		int temp = arr[a];
-		arr[a] = arr[b];
-		arr[b] = temp;
+
+	public static void insertFirst(int data) {
+		Node newNode = new Node(data);
+		if (head == null) {
+			head = newNode;
+			return;
+		}
+		newNode.next = head;
+		head = newNode;
+		return;
+	}
+
+	public static void insertLast(int data) {
+		
+		Node newNode=new Node(data);
+		if(head==null) {
+			head=newNode;
+			return;
+		}
+		Node curr=head;
+		while(curr.next!=null) {
+			curr=curr.next;
+		}
+		curr.next=newNode;
+		return;
 	}
 	
-	public static void mergeSort(int[] arr) {
+	public static void removeFirst() {
+		
+		if (head==null || head.next==null) {
+			head=null;
+			return;
+		}
+		head=head.next;
+		return;
+	}
+	public static void removeLast() {
+		
+		if(head==null || head.next==null) {
+			head=null;
+			return;
+		}
+		Node prev=head;
+		Node curr=head.next;
+		while(curr.next!=null) {
+			curr=curr.next;
+			prev=prev.next;
+		}
+		prev.next=null;
+		return;
+	}
+
+	public static void insert_at_index(int data, int index) {
+		Node newNode = new Node(data);
+		if (head == null) {
+			head = newNode;
+			return;
+		}
+		int count = 1;
+		Node curr = head;
+		if (index == 0) {
+			newNode.next = head;
+			head = newNode;
+			return;
+		}
+		while (index > count) {
+			curr = curr.next;
+			count++;
+		}
+		newNode.next=curr.next ;
+		curr.next = newNode;
+		return;
+	}
+
+	public static void delete_at_index(int index) {
+
+		if(head==null || head.next==null) {
+			head=null;
+			return;
+		}
+		int count=1;
+		Node curr=head;
+		if(index==0) {
+			head=head.next;
+			return;
+		}
+		while(index>count) {
+			curr=curr.next;
+			count++;
+		}
+		curr.next=curr.next.next;
+		return;
+	}
+	
+	public static Node reverseLL() {
+		
+		if(head==null || head.next==null) {
+			return head;
+		}
+		Node prev=null;
+		Node curr=head;
+		while(curr!=null) {
+			Node endNode=curr.next;
+			curr.next=prev;
+			prev=curr;
+			curr=endNode;
+		}
+		head.next=null;
+		
+		return prev;
+	}
+	public static Node reverseLLRecursive(Node head) {
+
+		if (head == null || head.next == null) {
+			return head;
+		}
+		Node newHead = reverseLLRecursive(head.next);
+		Node front=head.next;
+		front.next=head;
+		head.next=null;
+		return newHead;
+
+	}
+
+	public static void insert(int data) {
+		Node newNode = new Node(data);
+		if (head == null) {
+			head = newNode;
+			return;
+		}
+		Node curr = head;
+		while (curr.next != null) {
+			curr = curr.next;
+		}
+		curr.next = newNode;
+		return;
+
+	}
+
+	public static void printLL() {
+		if (head == null) {
+			System.out.println("Linekd list is empty!!!!");
+			return;
+		}
+		Node curr = head;
+		while (curr != null) {
+			System.out.print(curr.data + " -> ");
+			curr = curr.next;
+		}
+		System.out.println("NULL");
+	}
+
+	public static void main(String[] args) {
+
+		insert(10);
+		insert(20);
+		insert(30);
+		insert(40);
+		printLL();
+//		insertFirst(5);
+//		insertLast(50);
+//		printLL();
+//		removeFirst();
+//		printLL();
+//		removeLast();
+//		printLL();
+//		insert_at_index(70,2);
+//		printLL();
+//		delete_at_index(4);
+//		printLL();
+//	 head=reverseLL();
+//		printLL();
+		head=reverseLLRecursive(head);
+		printLL();
 		
 	}
 
