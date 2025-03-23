@@ -40,7 +40,7 @@ public class MiddleOfLinkedList {
 		System.out.println("NULL");
 	}
 
-	// Bruteforce Approach
+	// Bruteforce Approach(N+n/2=N)
 	public static int length(Node head) {
 		Node currNode = head;
 		int count = 0;
@@ -53,11 +53,11 @@ public class MiddleOfLinkedList {
 	}
 
 	public static Node findMiddle(Node head) {
-		int count = length(head);
-		int ans = count / 2;
+		int n = length(head);
+		int mid = n / 2;
 		int cnt = 0;
 		Node temp = head;
-		while (cnt < ans) {
+		while (cnt < mid) {
 			temp = temp.next;
 			cnt++;
 		}
