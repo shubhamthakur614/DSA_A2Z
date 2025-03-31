@@ -64,7 +64,7 @@ public class MiddleOfLinkedList {
 		return temp;
 	}
 
-	// to find the midddle of first if it is even one way
+	// to find the middle of first if it is even one way
 	public static Node findMiddleFirst(Node head) {
 
 		if (head == null || head.next == null) {

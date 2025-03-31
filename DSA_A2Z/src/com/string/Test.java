@@ -1,223 +1,180 @@
 package com.string;
 
+
 public class Test {
 
-	private static Node head;
-
 	static class Node {
-
+		// Data stored in the node
 		int data;
+		// Pointer to the next
+		// node in the list
 		Node next;
 
-		public Node(int data) {
+		// Constructor with only data as
+		// a parameter, sets next to null
+		Node(int data) {
 			this.data = data;
 			this.next = null;
 		}
-
 	}
 
-	public static void insertFirst(int data) {
-		Node newNode = new Node(data);
-		if (head == null) {
-			head = newNode;
-			return;
-		}
-		newNode.next = head;
-		head = newNode;
-		return;
-	}
+	// Function to reverse a linked list
+	// using the 3-pointer approach
+	static Node reverseLinkedList(Node head) {
+		// Initialize'temp' at
+		// head of linked list
+		Node temp = head;
 
-	public static void insertLast(int data) {
-
-		Node newNode = new Node(data);
-		if (head == null) {
-			head = newNode;
-			return;
-		}
-		Node curr = head;
-		while (curr.next != null) {
-			curr = curr.next;
-		}
-		curr.next = newNode;
-		return;
-	}
-
-	public static void removeFirst() {
-
-		if (head == null || head.next == null) {
-			head = null;
-			return;
-		}
-		head = head.next;
-		return;
-	}
-
-	public static void removeLast() {
-
-		if (head == null || head.next == null) {
-			head = null;
-			return;
-		}
-		Node prev = head;
-		Node curr = head.next;
-		while (curr.next != null) {
-			curr = curr.next;
-			prev = prev.next;
-		}
-		prev.next = null;
-		return;
-	}
-
-	public static void insert_at_index(int data, int index) {
-		Node newNode = new Node(data);
-		if (head == null) {
-			head = newNode;
-			return;
-		}
-		int count = 1;
-		Node curr = head;
-		if (index == 0) {
-			newNode.next = head;
-			head = newNode;
-			return;
-		}
-		while (index > count) {
-			curr = curr.next;
-			count++;
-		}
-		newNode.next = curr.next;
-		curr.next = newNode;
-		return;
-	}
-
-	public static void delete_at_index(int index) {
-
-		if (head == null || head.next == null) {
-			head = null;
-			return;
-		}
-		int count = 1;
-		Node curr = head;
-		if (index == 0) {
-			head = head.next;
-			return;
-		}
-		while (index > count) {
-			curr = curr.next;
-			count++;
-		}
-		curr.next = curr.next.next;
-		return;
-	}
-
-	public static Node reverseLL() {
-
-		if (head == null || head.next == null) {
-			return head;
-		}
+		// Initialize pointer 'prev' to NULL,
+		// representing the previous node
 		Node prev = null;
-		Node curr = head;
-		while (curr != null) {
-			Node endNode = curr.next;
-			curr.next = prev;
-			prev = curr;
-			curr = endNode;
-		}
-		head.next = null;
 
+		// Traverse the list, continue till
+		// 'temp' reaches the end (NULL)
+		while (temp != null) {
+			// Store the next node in
+			// 'front' to preserve the reference
+			Node front = temp.next;
+
+			// Reverse the direction of the
+			// current node's 'next' pointer
+			// to point to 'prev'
+			temp.next = prev;
+
+			// Move 'prev' to the current
+			// node for the next iteration
+			prev = temp;
+
+			// Move 'temp' to the 'front' node
+			// advancing the traversal
+			temp = front;
+		}
+
+		// Return the new head of
+		// the reversed linked list
 		return prev;
-	}
-
-	public static Node reverseLLRecursive(Node head) {
-
-		if (head == null || head.next == null) {
-			return head;
-		}
-		Node newHead = reverseLLRecursive(head.next);
-		Node front = head.next;
-		front.next = head;
-		head.next = null;
-		return newHead;
 
 	}
 
-	public static void insert(int data) {
-		Node newNode = new Node(data);
-		if (head == null) {
-			head = newNode;
-			return;
-		}
-		Node curr = head;
-		while (curr.next != null) {
-			curr = curr.next;
-		}
-		curr.next = newNode;
-		return;
+	// Function to get the Kth node from
+	// a given position in the linked list
+	static Node getKthNode(Node temp, int k) {
+		// Decrement K as we already
+		// start from the 1st node
+		k -= 1;
 
-	}
+		// Decrement K until it reaches
+		// the desired position
+		while (temp != null && k > 0) {
+			// Decrement k as temp progresses
+			k--;
 
-	public static void printLL() {
-		if (head == null) {
-			System.out.println("Linekd list is empty!!!!");
-			return;
+			// Move to the next node
+			temp = temp.next;
 		}
-		Node curr = head;
-		while (curr != null) {
-			System.out.print(curr.data + " -> ");
-			curr = curr.next;
-		}
-		System.out.println("NULL");
-	}
-	
-	public static Node middleLL(Node head) {
-		int n=length(head);
-		int mid=n/2;
-		int count=0;
-		Node temp=head;
-		while(count<mid) {
-			count++;
-			temp=temp.next;
-		}
+
+		// Return the Kth node
 		return temp;
 	}
-	public static int length(Node head) {
-		
-		int count=0;
-		Node temp=head;
-		while(temp!=null) {
 
-			temp=temp.next;
-			count++;
+	// Function to reverse nodes in groups of K
+	static Node kReverse(Node head, int k) {
+		// Initialize a temporary
+		// node to traverse the list
+		Node temp = head;
+
+		// Initialize a pointer to track the
+		// last node of the previous group
+		Node prevLast = null;
+
+		// Traverse through the linked list
+		while (temp != null) {
+
+			// Get the Kth node of the current group
+			Node kThNode = getKthNode(temp, k);
+
+			// If the Kth node is NULL
+			// (not a complete group)
+			if (kThNode == null) {
+
+				// If there was a previous group,
+				// link the last node to the current node
+				if (prevLast != null) {
+					prevLast.next = temp;
+				}
+
+				// Exit the loop
+				break;
+			}
+
+			// Store the next node
+			// after the Kth node
+			Node nextNode = kThNode.next;
+
+			// Disconnect the Kth node
+			// to prepare for reversal
+			kThNode.next = null;
+
+			// Reverse the nodes from
+			// temp to the Kth node
+			reverseLinkedList(temp);
+
+			// Adjust the head if the reversal
+			// starts from the head
+			if (temp == head) {
+				head = kThNode;
+				System.out.println(kThNode.data);
+			} else {
+				// Link the last node of the previous
+				// group to the reversed group
+				prevLast.next = kThNode;
+				System.out.println(kThNode.data);
+			}
+
+			// Update the pointer to the
+			// last node of the previous group
+			prevLast = temp;
+			System.out.println(prevLast.data);
+
+			// Move to the next group
+			temp = nextNode;
 		}
-		return count;
+
+		// Return the head of the
+		// modified linked list
+		return head;
+	}
+
+	// Function to print the linked list
+	static void printLinkedList(Node head) {
+		Node temp = head;
+		while (temp != null) {
+			System.out.print(temp.data + " ");
+			temp = temp.next;
+		}
+		System.out.println();
 	}
 
 	public static void main(String[] args) {
+		// Create a linked list with
+		// values 5, 4, 3, 7, 9 and 2
+		Node head = new Node(5);
+		head.next = new Node(4);
+		head.next.next = new Node(3);
+		head.next.next.next = new Node(7);
+		head.next.next.next.next = new Node(9);
+//		head.next.next.next.next.next = new Node(2);
 
-		insert(10);
-		insert(20);
-		insert(30);
-		insert(40);
-		insert(50);
-		printLL();
-//		insertFirst(5);
-//		insertLast(50);
-//		printLL();
-//		removeFirst();
-//		printLL();
-//		removeLast();
-//		printLL();
-//		insert_at_index(70, 2);
-//		printLL();
-//		delete_at_index(4);
-//		printLL();
-//		head = reverseLL();
-//		printLL();
-//		head = reverseLLRecursive(head);
-//		printLL();
-		head=middleLL(head);
-		printLL();
+		// Print the original linked list
+		System.out.print("Original Linked List: ");
+		printLinkedList(head);
 
+		// Reverse the linked list
+		head = kReverse(head, 3);
+
+		// Print the reversed linked list
+		System.out.print("Reversed Linked List: ");
+		printLinkedList(head);
 	}
 
 }

@@ -56,14 +56,14 @@ public class Insert_at_specific_position {
 			
 		}
 		// if i want to insert at first Position
-		if (index == 0) {
+		if (index == 1) {
 			newNode.next = head;
 			head = newNode;
 			return;
 		}
 		int count = 1;
 		Node currNode = head;
-		while (count < index) {
+		while (count < index-1) {
 			currNode = currNode.next;
 			count++;
 
@@ -80,7 +80,7 @@ public class Insert_at_specific_position {
 		insert(50);
 		printLL();
 
-		insert_at_given_position(14, 2);
+		insert_at_given_position(14, 3);
 		printLL();
 	}
 
