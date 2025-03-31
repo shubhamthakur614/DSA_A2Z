@@ -98,11 +98,23 @@ public class Test {
 		if(head==null) {
 			return head;
 		}
-		Node temp=head;
-		while(temp!=null) {
-	
+		if(head.data==data) {
+			head=head.next;
+			return head;
 		}
-		return null;
+		Node curr=head;
+		Node prev=null;
+		while(curr!=null && curr.data!=data) {
+			prev=curr;
+			curr=curr.next;
+		}
+		if(curr==null) {
+			System.out.println("Not fount the element");
+			return head;
+		}
+		
+		prev.next=curr.next;
+		return head;
 	}
 
 	public static void printLL(Node head) {
@@ -159,6 +171,9 @@ public class Test {
 //		printLL(head);
 		head=insert_At_any(12,3,head);
 		printLL(head);
+		head=remove_at_any_data(4,head);
+		printLL(head);
+		
 
 	}
 }
