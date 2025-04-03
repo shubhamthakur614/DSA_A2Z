@@ -16,12 +16,32 @@ public class Sort_0_1_2 {
 	// bruteforce approach( TC-> O(2N) , SC-> O(1))
 
 	/*
-	 * Intution :
-	 * take 3 ptr and make them zero and start traversing linked list from
-	 * head to null while traversing what ever data found put into that particular
-	 * ptr and move and increase ptr count . after all count again make temp to head
-	 * and check if ptr0 has data if yes then put into curr position and reduce
-	 * count till null
+	 * Intuition:
+		The idea is to use three pointers to segregate the linked list based on the values 0, 1, and 2. Here's how you can approach it:
+		
+		Initialize Three Pointers: Create three pointers (ptr0, ptr1, and ptr2) to represent the three partitions for 0s, 1s, and 2s. Each pointer will point to the last node of its respective partition.
+		
+		Traverse the List: Traverse the original linked list from the head to the end (i.e., from head to null). As you go through each node:
+		
+		If the node's data is 0, append it to the 0 partition (i.e., ptr0).
+		
+		If the node's data is 1, append it to the 1 partition (i.e., ptr1).
+		
+		If the node's data is 2, append it to the 2 partition (i.e., ptr2).
+		
+		After each insertion, move the respective pointer (ptr0, ptr1, or ptr2) forward.
+		
+		Connect the Partitions: After processing all the nodes:
+		
+		Connect the last node of the 0 partition (ptr0) to the first node of the 1 partition (ptr1).
+		
+		Then, connect the last node of the 1 partition (ptr1) to the first node of the 2 partition (ptr2).
+		
+		The last node of the 2 partition should point to null to ensure the list ends.
+		
+		Update Head: The new head of the list will be the first node of the 0 partition, so set the head to ptr0.next.
+		
+		By doing this, you will have successfully segregated the linked list into three parts, maintaining the order of 0s, 1s, and 2s.
 	 * 
 	 */
 	public static Node segregate(Node head) {
