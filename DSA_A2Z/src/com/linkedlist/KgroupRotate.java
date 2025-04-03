@@ -147,10 +147,10 @@ public class KgroupRotate {
 	static void printLinkedList(Node head) {
 		Node temp = head;
 		while (temp != null) {
-			System.out.print(temp.data + " ");
+			System.out.print(temp.data + "-> ");
 			temp = temp.next;
 		}
-		System.out.println();
+		System.out.println("Null");
 	}
 
 	public static void main(String[] args) {
