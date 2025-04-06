@@ -1,5 +1,11 @@
 package com.test;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 class Node {
 	int data;
 	Node next;
@@ -150,13 +156,63 @@ public class Test {
 	public static Node recursionReverse() {
 		return null;
 	}
+	
+	public static Node rotate(Node head,int k) {
+		if(head==null || head.next==null || k==0) {
+			return head;
+		}
+		int n=1;
+		Node temp=head;
+		while(temp.next!=null) {
+			temp=temp.next;
+			n++;
+		}
+		k=k%n;
+		
+		if(k==0) {
+			return head;
+		}
+		n=n-k;
+		Node curr=head;
+		while(n-1>0) {
+			curr=curr.next;
+			n--;
+		}
+		Node endNode=curr.next;
+		curr.next=null;
+		temp.next=head;
+		head=endNode;
+		return head;
+	}
+	
+	public static Node sortLL(Node head) {
+		if(head==null || head.next==null) {
+			return head;
+		}
+		Node temp=head;
+		List<Node>al=new ArrayList<>();
+		while(temp!=null) {
+			al.add(temp);
+			temp=temp.next;
+		}
+		temp=head;
+		List<Node> collect = al.stream().sorted(Comparator.comparingInt(x->x.data)).collect(Collectors.toList());
+		for(int i=0;i<collect.size();i++) {
+			while(temp!=null) {
+				temp=al.get(i);
+				temp=temp.next;
+			}
+		}
+		
+		return head;
+	}
 
 	public static void main(String[] args) {
 
 		Node head = new Node(1);
-		head.next = new Node(2);
-		head.next.next = new Node(3);
-		head.next.next.next = new Node(4);
+		head.next = new Node(4);
+		head.next.next = new Node(2);
+		head.next.next.next = new Node(3);
 		head.next.next.next.next = new Node(5);
 		printLL(head);
 //		head = reverseLL(head);
@@ -169,9 +225,7 @@ public class Test {
 //		printLL(head);
 //		head=removeLast(head);
 //		printLL(head);
-		head=insert_At_any(12,3,head);
-		printLL(head);
-		head=remove_at_any_data(4,head);
+		head=sortLL(head);
 		printLL(head);
 		
 

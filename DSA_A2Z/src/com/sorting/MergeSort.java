@@ -13,7 +13,7 @@ public class MergeSort {
 
 	}
 
-	// it follow divide and conquer technique
+	// it follow divide and merge technique
 	public static void mergeSort(int[] arr, int n) {
 
 		divide(arr, 0, n - 1);
@@ -27,11 +27,11 @@ public class MergeSort {
 		int mid = low + (high - low) / 2;
 		divide(arr, low, mid);
 		divide(arr, mid + 1, high);
-		conquer(arr, low, mid, high);
+		merge(arr, low, mid, high);
 
 	}
 
-	public static void conquer(int[] arr, int low, int mid, int high) {
+	public static void merge(int[] arr, int low, int mid, int high) {
 
 		int idx1 = low;
 		int idx2 = mid + 1;
@@ -52,10 +52,14 @@ public class MergeSort {
 		while (idx2 <= high) {
 			merged[count++] = arr[idx2++];
 		}
-		for (int i = 0, j = low; i < merged.length; i++, j++) {
-
-			arr[j] = merged[i];
-		}
+//		for (int i = 0, j = low; i < merged.length; i++, j++) {
+//
+//			arr[j] = merged[i];
+//		}
+		
+		for (int i = low; i <= high; i++) {
+            arr[i] = merged[i - low];
+        }
 
 	}
 
