@@ -1,7 +1,5 @@
 package com.linkedlist;
 
-import com.linkedlist.Delete_At_Specific_position.Node;
-
 public class SortLL {
 	public static class Node {
 		int data;
