@@ -1,5 +1,7 @@
 package com.linkedlist;
 
+import com.linkedlist.Delete_At_Specific_position.Node;
+
 public class SortLL {
 	public static class Node {
 		int data;
@@ -10,9 +12,30 @@ public class SortLL {
 			this.next = null;
 		}
 	}
+	public static void printLL(Node head) {
+		if (head == null) {
+			System.out.println("LL is Empty ...");
+			return;
+		}
+		Node currNode = head;
+		while (currNode != null) {
+			System.out.print(currNode.data + " -> ");
+			currNode = currNode.next;
+		}
+		System.out.println(" Null");
+
+	}
 
 	public static void main(String[] args) {
 
+		Node head=new Node(5);
+		head.next=new Node(2);
+		head.next.next=new Node(1);
+		head.next.next.next=new Node(3);
+		printLL(head);
+		head=sortList(head);
+		printLL(head);
+		
 	}
 
 	public static Node sortList(Node head) {

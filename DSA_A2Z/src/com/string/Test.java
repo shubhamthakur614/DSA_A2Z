@@ -10,54 +10,50 @@ public class Test {
 		System.out.println(Arrays.toString(arr));
 
 	}
-
-	// it follow divide and conquer technique
-	public static void mergeSort(int[] arr, int n) {
-
-		divide(arr, 0, n - 1);
+	
+	public static void mergeSort(int [] arr,int n) {
+		divide(arr,0,n-1);
 	}
-
-	public static void divide(int[] arr, int low, int high) {
-
-		if (low >= high) {
+	
+	public static void divide(int[] arr,int low,int high) {
+		if(low>=high) {
 			return;
 		}
-		int mid = low + (high - low) / 2;
-		divide(arr, low, mid);
-		divide(arr, mid + 1, high);
-		conquer(arr, low, mid, high);
-
+		
+		int mid=low+(high-low)/2;
+		
+		divide(arr,low,mid);
+		divide(arr,mid+1,high);
+		merge(arr,low,mid,high);
 	}
-
-	public static void conquer(int[] arr, int low, int mid, int high) {
-
-		int idx1 = low;
-		int idx2 = mid + 1;
-
-		int count = 0;
-		int[] merged = new int[high - low + 1];
-
-		while (idx1 <= mid && idx2 <= high) {
-			if (arr[idx1] <= arr[idx2]) {
-				merged[count++] = arr[idx1++];
-			} else {
-				merged[count++] = arr[idx2++];
+	
+	public static void merge(int[] arr,int low,int mid,int high) {
+		int left=low;
+		int right=mid+1;
+		int count=0;
+		
+		int[] merge=new int[high-low+1];
+		while(left<=mid && right<=high) {
+			if(arr[left]<=arr[right]) {
+				merge[count++]=arr[left++];
+			}
+			else {
+				merge[count++]=arr[right++];
 			}
 		}
-		while (idx1 <= mid) {
-			merged[count++] = arr[idx1++];
-		}
-		while (idx2 <= high) {
-			merged[count++] = arr[idx2++];
-		}
-//		for (int i = 0, j = low; i < merged.length; i++, j++) {
-//
-//			arr[j] = merged[i];
-//		}
 		
-		for (int i = low; i <= high; i++) {
-            arr[i] = merged[i - low];
-        }
-
+		while(left<=mid) {
+			merge[count++]=arr[left++];
+		}
+		
+		while(right<=high) {
+			merge[count++]=arr[right++];
+		}
+		
+		for(int i=low;i<=high;i++) {
+			arr[i]=merge[i-low];
+		}
 	}
+
+	
 }
