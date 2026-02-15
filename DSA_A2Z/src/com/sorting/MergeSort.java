@@ -44,23 +44,24 @@ public class MergeSort {
 				merged[count++] = arr[idx1++];
 			} else {
 				merged[count++] = arr[idx2++];
+
 			}
-		}
-		while (idx1 <= mid) {
-			merged[count++] = arr[idx1++];
-		}
-		while (idx2 <= high) {
-			merged[count++] = arr[idx2++];
-		}
+			while (idx1 <= mid) {
+				merged[count++] = arr[idx1++];
+			}
+			while (idx2 <= high) {
+				merged[count++] = arr[idx2++];
+			}
 //		for (int i = 0, j = low; i < merged.length; i++, j++) {
 //
 //			arr[j] = merged[i];
 //		}
-		
-		for (int i = low; i <= high; i++) {
-            arr[i] = merged[i - low];
-        }
+
+			for (int i = low; i <= high; i++) {
+				arr[i] = merged[i - low];
+			}
+
+		}
 
 	}
-
 }

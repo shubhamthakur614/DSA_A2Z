@@ -15,6 +15,7 @@ public class Test {
 
 		int k = 2;
 
+		System.out.println("ArrayList Before  rotation: " + arrayList);
 		rotate(arrayList, k);
 
 		System.out.println("ArrayList after rotation: " + arrayList);

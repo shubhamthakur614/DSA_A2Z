@@ -14,25 +14,25 @@ language you are using.
 early or lazy loading.
 --so if we are using our application in the multithreaded environment using executorservice.executer() at the time 
 two threads will create an object that is why we will use the synchronization concept with double-check.
-----1----Reflcetion API
+----1----Reflection API
 --we can break singleton design patterns by using reflection API
 --just use className.class.getDeclereadConstructor will return the constructor and u need to use setAccesc(true)
  and create newInstance().
---VImp to get ride of this reflection Api inside constructor will check if object allredy created then will return
- Exception this is how we get ride of refelction APi
+--VImp to get ride of this reflection Api inside constructor will check if object already created then will return
+ Exception this is how we get ride of reflection APi
 
 ----2---ENUM instead of class
---we can use enum instead of class and we need just any varibale without type and just remove everything and use 
+--we can use enum instead of class and we need just any variable without type and just remove everything and use 
 classname.instacename to get object 
 
 
 ---3--Deserialization
---by using deserialization through we can breck design pattern inside somewhere conning can be done we can resolve
+--by using deserialization through we can break design pattern inside somewhere conning can be done we can resolve
  this byreadResolve()
 
 --4---Cloning
 if we implement clone method from object class it will give you the new object
---so we override the clone method in our class by preoviding clone as our object only
+--so we override the clone method in our class by providing clone as our object only
 
 
 2)Factory Design Pattern
@@ -40,7 +40,7 @@ if we implement clone method from object class it will give you the new object
 the object of child based on i/p its not recommendate to create object
 with client class .its not good practice to show the object creation infront of client so we will create 
 factoryClass.
--in that class we crete static method will return use object based on out type i/p which object you wnat 
+-in that class we create static method will return use object based on out type i/p which object you want 
 and we return object to client without knowing him internal logic for the same
 
 
