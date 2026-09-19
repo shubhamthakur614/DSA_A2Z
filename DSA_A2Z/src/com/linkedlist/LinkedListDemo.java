@@ -104,12 +104,14 @@ public class LinkedListDemo {
 			return;
 		}
 		Node currNode = head;
-		int count = 2;
-		if (count < index) {
+		int count = 1;
+		while (count < index && currNode != null) {
 			currNode = currNode.next;
 			count++;
 		}
-		currNode.next = currNode.next.next;
+		if (currNode != null && currNode.next != null) {
+			currNode.next = currNode.next.next;
+		}
 		return;
 
 	}
