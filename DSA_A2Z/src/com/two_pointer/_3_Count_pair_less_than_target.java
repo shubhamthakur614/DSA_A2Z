@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 //leetcode 2984
 
-public class Count_pair_less_than_target {
+public class _3_Count_pair_less_than_target {
     public static void main(String[] args) {
         List<Integer> nums = new ArrayList<>(List.of(-1, 1, 2, 3, 1));
         int target = 2;

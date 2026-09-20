@@ -1,6 +1,8 @@
 package com.two_pointer;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Test {
     public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class Test {
         System.out.println(Arrays.toString(twoSum(arr,target)));
 
         System.out.println(Arrays.toString(twoSum1(arr,target)));
+        System.out.println(Arrays.toString(twoSumHashMap(arr,target)));
     }
 
     //bruteforce approach with time complexity O(n^2)
@@ -41,6 +44,18 @@ public class Test {
             } else {
                 right--;
             }
+        }
+        return new int[]{-1, -1};
+    }
+
+    public static int[] twoSumHashMap(int[] arr, int target) {
+        Map<Integer, Integer> hm = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            int complement = target - arr[i];
+            if (hm.containsKey(complement)) {
+                return new int[]{hm.get(complement), i};
+            }
+            hm.put(arr[i], i);
         }
         return new int[]{-1, -1};
     }

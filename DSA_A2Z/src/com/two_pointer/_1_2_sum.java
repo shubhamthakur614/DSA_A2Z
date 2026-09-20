@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class _2_sum {
+public class _1_2_sum {
     public static void main(String[] args) {
         // Test case: Unsorted array, return indices
         int[] arr = {2, 1, 1, 11, 7};

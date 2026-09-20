@@ -2,7 +2,7 @@ package com.two_pointer;
 
 import java.util.Arrays;
 
-public class duplicate_element {
+public class _2_duplicate_element {
     public static void main(String[] args) {
         int[] nums={1,1,3,2,1,4};
 
