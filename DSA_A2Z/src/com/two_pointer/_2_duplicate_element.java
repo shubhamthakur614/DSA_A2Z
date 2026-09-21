@@ -46,6 +46,7 @@ public class _2_duplicate_element {
             // If duplicate, just move end forward (skip it)
         }
         return start + 1;  // Return count of unique elements
+//        return Arrays.copyOf(arr,start+1);  if ask to return array without duplicate
     }
 }
 
