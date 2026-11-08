@@ -49,24 +49,26 @@ public class Insert_at_specific_position {
 	public static void insert_at_given_position(int data, int index) {
 
 		Node newNode = new Node(data);
-		if (head == null) {
-			head=newNode;
-			return;
-			
-			
-		}
 		// if i want to insert at first Position
 		if (index == 1) {
 			newNode.next = head;
 			head = newNode;
 			return;
 		}
-		int count = 1;
+//		int count = 1;
 		Node currNode = head;
-		while (count < index-1) {
-			currNode = currNode.next;
-			count++;
+//		while (count < index-1) {
+//			currNode = currNode.next;
+//			count++;
+//
+//		}
 
+		for(int i=0;i<index-1 && currNode!=null ;i++){
+			currNode=currNode.next;
+		}
+		if (currNode == null) {
+			System.out.println("Index out of range");
+			return;
 		}
 		newNode.next = currNode.next;
 		currNode.next = newNode;
